@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+# postgres
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/logsdb
+    username: alura
+    password: nJ6vsW37rCd1v88
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+# actuator
+management:
+  endpoint:
+    health.show-details: always
+    web.exposure.include: health,info,metrics,prometheus
+
+# prometheus
+management.metrics:
+  enable.jvm: true
+  export.prometheus.enabled: true
+  distribution.slo.http: 50ms,100ms,200ms,300ms,500ms,1s
+  tags.application: api-cursos
+
+# project
+info:
+  app:
+    name: api-cursos
+    description: API para registro de cursos
+    version: 0.0.1-SNAPSHOT
+    encoding: UTF-8
