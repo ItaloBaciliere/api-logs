@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "9b0f99cd-8264-45a9-ac11-85a538e563ee",
+		"name": "API Logs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40375825"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Curso",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numeroMatricula\":\"2304198301\",\n    \"numeroCurso\":\"1403198901\",\n    \"nomeCurso\":\"Instrumentação e Refatoração de Logs\",\n    \"categoriaCurso\":\"Site Reliability Enginner\",\n    \"preRequisito\":\"Formação DevOps\",\n    \"nomeProfessor\":\"Kleber Costa\",\n    \"periodoCurso\":\"10 horas\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/cursos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cursos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Curso Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numeroMatricula\":\"2104198309\",\n    \"numeroCurso\":\"2104198313\",\n    \"nomeCurso\":\"Instrumentação e Refatoração de Logs\",\n    \"categoriaCurso\":\"Site Reliability Enginner\",\n    \"preRequisito\":\"Formação DevOps\",\n    \"nomeProfessor\":\"Kleber Costa\",\n    \"periodoCurso\":\"10 horas\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/cursos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cursos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Cursos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/cursos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cursos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Cursos - Paginação",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cursos?page=0&size=3&sort=dataInscricao,DESC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cursos"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "sort",
+							"value": "dataInscricao,DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Curso",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cursos/4076a29d-0358-4b67-bd34-f468803e56c9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cursos",
+						"4076a29d-0358-4b67-bd34-f468803e56c9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Curso - não existente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cursos/4076a29d-0358-4b67-bd34-f468803e5445",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cursos",
+						"4076a29d-0358-4b67-bd34-f468803e5445"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Curso -  forçar erro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cursos/d377bf69",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cursos",
+						"d377bf69"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Curso",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numeroMatricula\": \"2304198301\",\n    \"numeroCurso\": \"1403198901\",\n    \"nomeCurso\": \"Instrumentação e Refatoração de Logs\",\n    \"categoriaCurso\": \"Site Reliability Enginner\",\n    \"preRequisito\": \"Formação DevOps\",\n    \"nomeProfessor\": \"Kleber de Paiva Siqueira Costa\",\n    \"periodoCurso\": \"10 horas\"\n}\n   "
+				},
+				"url": {
+					"raw": "http://localhost:8080/cursos/d377bf69-5cbd-4bb5-9fdb-6c9c7162a30c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cursos",
+						"d377bf69-5cbd-4bb5-9fdb-6c9c7162a30c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Curso",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cursos/bfabab79-89d5-4662-ac91-ac708db65664",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cursos",
+						"bfabab79-89d5-4662-ac91-ac708db65664"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
